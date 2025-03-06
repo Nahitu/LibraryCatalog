@@ -1,0 +1,16 @@
+services:
+  db:
+    image: 'postgres:latest'
+    container_name: 'postgres_container'
+    environment:
+      - 'POSTGRES_DB=libraryDatabase'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=gebray'
+    ports:
+      - '5432'
+    networks:
+      - 'postgres_network'
+
+networks:
+  postgres_network:
+    driver: 'bridge'
